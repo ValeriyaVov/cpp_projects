@@ -1,0 +1,10 @@
+^C:\CPP_PROJECTS\03.HOMEWORK\BUILD\CMAKEFILES\F6D8B851B4221889971B60815135F929\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/cpp_projects/03.homework -BC:/cpp_projects/03.homework/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/cpp_projects/03.homework/build/03.homework.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

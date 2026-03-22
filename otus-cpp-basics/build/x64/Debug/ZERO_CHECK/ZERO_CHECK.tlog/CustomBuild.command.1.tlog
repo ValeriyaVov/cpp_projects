@@ -1,0 +1,10 @@
+^C:\CPP_PROJECTS\OTUS-CPP-BASICS\BUILD\CMAKEFILES\12F5FB58328FD2811F6BE4EC06BA78D7\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/cpp_projects/otus-cpp-basics -BC:/cpp_projects/otus-cpp-basics/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/cpp_projects/otus-cpp-basics/build/01.hello_world.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
