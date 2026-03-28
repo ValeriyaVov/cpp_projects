@@ -1,4 +1,5 @@
 #include <iostream>
+#include "check_value.h"
 
 int check_value(int target_value) {
 

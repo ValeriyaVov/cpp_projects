@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "high_scores.h"
 
 int high_scores(int attempts_count, const std::string& user_name) {
     const std::string high_scores_filename = "high_scores.txt";
