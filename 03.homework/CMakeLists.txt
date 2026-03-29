@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(03.homework)
 
 add_executable(homework
+	main.cpp
 	game_result.cpp
 	random_value.cpp
 	argument.cpp

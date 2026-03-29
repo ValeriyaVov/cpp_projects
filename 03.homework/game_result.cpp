@@ -8,7 +8,7 @@
 #include "rating.h"
 
 
-int main(int argc, char** argv) {
+int game_result(int argc, char** argv) {
    // Ask about name
 	std::cout << "Hi! Enter your name, please:" << std::endl;
 	std::string user_name;
