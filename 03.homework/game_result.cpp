@@ -3,10 +3,9 @@
 #include <string>
 
 // Объявления функций из других файлов
-#include "random_value.h"
+#include "random_check_value.h"
 #include "argument.h"
-#include "check_value.h"
-#include "high_scores.h"
+#include "rating.h"
 
 
 int main(int argc, char** argv) {

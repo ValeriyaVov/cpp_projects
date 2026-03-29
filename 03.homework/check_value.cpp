@@ -1,5 +1,5 @@
 #include <iostream>
-#include "check_value.h"
+#include "random_check_value.h"
 
 int check_value(int target_value) {
 

@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 
-#include "random_value.h"
+#include "random_check_value.h"
 
 int random_value() {
 
