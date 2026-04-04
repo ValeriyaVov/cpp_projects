@@ -1,4 +1,4 @@
-int game_result(int argc, char** argv);
+#include "rating.h"
 
 int main(int argc, char** argv) {
      return game_result(argc, argv);
