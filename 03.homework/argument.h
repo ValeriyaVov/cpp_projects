@@ -1,6 +1,3 @@
-#ifndef ARGUMENT_H
-#define ARGUMENT_H
+#pragma once
 
 int argument(int argc, char** argv);
-
-#endif
