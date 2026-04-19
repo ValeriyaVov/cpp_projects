@@ -1,0 +1,24 @@
+
+# Скомпилированные файлы
+*.exe
+*.obj
+*.dll
+*.lib
+*.pdb
+
+# Папка сборки
+build/
+Debug/
+Release/
+
+# SFML (библиотека)
+SFML-2.6.1/
+SFML-2.6.1-windows-vc17-64-bit/
+
+# VS Code
+.vscode/
+
+# Временные файлы
+*.tmp
+*.log
+*.user
