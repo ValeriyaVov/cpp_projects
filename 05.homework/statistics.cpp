@@ -7,7 +7,7 @@
 
 class IStatistics {
 public:
-    IStatistics(const char* name) : m_name(name) {}
+    IStatistics(const char* name) : m_name(name), m_value(0.0) {}
     virtual ~IStatistics() = default;
     
     virtual void update(double next) = 0;
@@ -16,7 +16,7 @@ public:
     const char* name() const { return m_name; }
 
 protected:
-    double m_value = 0.0;
+    double m_value;
 
 private:
     const char* m_name;
@@ -24,51 +24,47 @@ private:
 
 class Min : public IStatistics {
 public:
-    Min() : IStatistics("Min"), m_min{std::numeric_limits<double>::max()} {}
+    Min() : IStatistics("Min") {
+        m_value = std::numeric_limits<double>::max();
+    }
 
     void update(double next) override {
-        if (next < m_min) {
-            m_min = next;
+        if (next < m_value) {
+            m_value = next;
         }
-        m_value = m_min;
     }
 
     double eval() const override {
-        if (m_min == std::numeric_limits<double>::max()) {
+        if (m_value == std::numeric_limits<double>::max()) {
             throw std::logic_error("No values provided");
         }
-        return m_min;
+        return m_value;
     }
-
-private:
-    double m_min;
 };
 
 class Max : public IStatistics {
 public:
-    Max() : IStatistics("Max"), m_max{std::numeric_limits<double>::lowest()} {}
+    Max() : IStatistics("Max") {
+        m_value = std::numeric_limits<double>::lowest();
+    }
 
     void update(double next) override {
-        if (next > m_max) {
-            m_max = next;
+        if (next > m_value) {
+            m_value = next;
         }
-        m_value = m_max;
     }
 
     double eval() const override {
-        if (m_max == std::numeric_limits<double>::lowest()) {
+        if (m_value == std::numeric_limits<double>::lowest()) {
             throw std::logic_error("No values provided");
         }
-        return m_max;
+        return m_value;
     }
-
-private:
-    double m_max;
 };
 
 class Mean : public IStatistics {
 public:
-    Mean() : IStatistics("Mean"), m_sum{0.0}, m_count{0} {}
+    Mean() : IStatistics("Mean"), m_sum(0.0), m_count(0) {}
 
     void update(double next) override {
         m_sum += next;
@@ -82,7 +78,7 @@ public:
         if (m_count == 0) {
             throw std::logic_error("No values provided");
         }
-        return m_sum / m_count;
+        return m_value;
     }
 
 private:
@@ -115,9 +111,7 @@ public:
             sq_sum += diff * diff;
         }
 
-        double result = std::sqrt(sq_sum / m_values.size());
-        const_cast<StandardDeviation*>(this)->m_value = result;
-        return result;
+        return std::sqrt(sq_sum / m_values.size());
     }
 
 private:
