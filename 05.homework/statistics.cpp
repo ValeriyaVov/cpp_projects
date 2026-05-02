@@ -64,25 +64,22 @@ public:
 
 class Mean : public IStatistics {
 public:
-    Mean() : IStatistics("Mean"), m_sum(0.0), m_count(0) {}
+    Mean() : IStatistics("Mean"), m_value(0.0), m_count(0) {}
 
     void update(double next) override {
-        m_sum += next;
+        m_value += next;
         ++m_count;
-        if (m_count > 0) {
-            m_value = m_sum / m_count;
-        }
     }
 
     double eval() const override {
         if (m_count == 0) {
             throw std::logic_error("No values provided");
         }
-        return m_value;
+        return m_value / m_count;
     }
 
 private:
-    double m_sum;
+    double m_value; 
     size_t m_count;
 };
 
