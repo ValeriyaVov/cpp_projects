@@ -64,7 +64,7 @@ public:
 
 class Mean : public IStatistics {
 public:
-    Mean() : IStatistics("Mean"), m_value(0.0), m_count(0) {}
+    Mean() : IStatistics("Mean"), m_count(0) {}
 
     void update(double next) override {
         m_value += next;
@@ -79,7 +79,6 @@ public:
     }
 
 private:
-    double m_value; 
     size_t m_count;
 };
 
